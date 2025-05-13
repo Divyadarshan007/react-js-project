@@ -3,7 +3,7 @@ import MainRightContent from "./MainRightContent";
 
 const MainBanner = () => {
   return (
-    <section className="">
+    <section className="bg-image">
        <div className="container">
          <div className="row position-relative z-1">
             <MainLeftContent/>

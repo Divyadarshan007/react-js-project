@@ -1,20 +1,24 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
   list-style: none;
+  font-family: "Poppins", sans-serif;
 }
 
-.login-btn{
+.login-btn {
   border: 2px solid #6441da;
   padding: 5px 20px;
   border-radius: 30px;
   background-color: transparent;
 }
-header{
+
+header {
   position: absolute;
   width: 100%;
   z-index: 9999;
   border-bottom: 1px solid rgba(128, 128, 128, 0.136)
 }
-section{
+
+.bg-image {
   background-image: url('./assets/image/bg-2.dde07ca0.jpg');
   background-position: center;
   background-repeat: no-repeat;
@@ -23,7 +27,7 @@ section{
   position: relative;
 }
 
-section:before{
+.bg-image:before {
   content: '';
   position: absolute;
   width: 100%;
@@ -31,22 +35,138 @@ section:before{
   background-color: rgba(33, 0, 67, .9);
 }
 
-.f-18{
+.f-18 {
   font-size: 18px;
 }
 
-.f-45{
+.f-45 {
   font-size: 45px;
 }
-.twoButton button:first-child{
+
+.twoButton button:first-child {
   padding: 10px 20px;
-  border:none ;
+  border: none;
   border: 1px solid #6441da;
   border-radius: 30px;
 }
-.twoButton button:last-child{
+
+.twoButton button:last-child {
   padding: 10px 20px;
-  border:none ;
+  border: none;
   border: 1px solid #6441da;
   border-radius: 30px;
+}
+
+body {
+  background-image: linear-gradient(rgb(36, 0, 68) 0px, rgb(15, 2, 64) 25%, rgb(64, 9, 89) 40%, rgb(15, 2, 64) 65%, rgb(15, 2, 64));
+}
+
+.Service-card {
+  padding: 30px 20px 15px;
+  border: 1px solid #08b1b1;
+  border-radius: 0 20px;
+  height: 100%;
+  background: rgba(0, 0, 0, .1);
+}
+
+.roadmap-card {
+  padding: 30px;
+  background: #0d003b;
+  border: 1px solid #25cbd3;
+  width: calc(50% - 74px);
+  text-align: left;
+  position: relative;
+}
+
+.timeline {
+  position: relative;
+}
+
+.timeline:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background: #25cbd3;
+  left: calc(50% - 10px);
+}
+
+.timeline:after {
+  content: "";
+  width: 2px;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  left: calc(50% - 1px);
+  background: #25cbd3;
+}
+
+.roadmap-card:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  right: -80px;
+  border-radius: 50%;
+  position: absolute;
+  background: #25cbd3;
+  top: 30px;
+
+}
+
+.roadmap-card:after {
+  content: "";
+  width: 95px;
+  height: 2px;
+  position: absolute;
+  background: #25cbd3;
+  top: 34px;
+  z-index: -1;
+  right: -78px;
+}
+
+.block-right {
+  text-align: left;
+  margin-left: calc(50% + 74px);
+}
+
+.roadmap-card.block-right:before {
+  left: -80px;
+}
+
+.roadmap-card.block-right:after {
+  left: -80px;
+}
+
+.py-6 {
+  padding: 70px 0;
+}
+
+.roadmap-card.block-left {
+  text-align: end;
+}
+
+.roadmap-card h3 {
+  color: #25cbd3;
+  font-size: 22px;
+}
+
+.roadmap-card .date {
+  padding: 5px 10px;
+  display: inline-block;
+  color: #fff;
+  background: #25cbd3;
+  margin: 10px 0;
+  font-size: 13px;
+  border-radius: 15px;
+}
+.roadmap-card .between {
+  padding: 5px 10px;
+    display: inline-block;
+    color: #fff;
 }
