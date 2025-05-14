@@ -2,32 +2,32 @@ import Card from "./Card";
 import SectionTitle from "./SectionTitle"
 let cardArr = [
     {
-        image:"./src/assets/image/image-1.svg",
+        image:"/public/image/image-1.svg",
         title:"Smart Trading Modules",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla neque quam, maximus ut accumsan ut, posuere sit Lorem ipsum."
     },
     {
-        image:"./src/assets/image/image-2.svg",
+        image:"/public/image/image-2.svg",
         title:"Adaptive Social Assistant",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla neque quam, maximus ut accumsan ut, posuere sit Lorem ipsum."
     },
     {
-        image:"./src/assets/image/image-3.svg",
+        image:"/public/image/image-3.svg",
         title:"Analyzer of the News",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla neque quam, maximus ut accumsan ut, posuere sit Lorem ipsum."
     },
     {
-        image:"./src/assets/image/image-4.svg",
+        image:"/public/image/image-4.svg",
         title:"Exchange Order Management",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla neque quam, maximus ut accumsan ut, posuere sit Lorem ipsum."
     },
     {
-        image:"./src/assets/image/image-5.svg",
+        image:"/public/image/image-5.svg",
         title:"Module of Price Notification",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla neque quam, maximus ut accumsan ut, posuere sit Lorem ipsum."
     },
     {
-        image:"./src/assets/image/image-6.svg",
+        image:"/public/image/image-6.svg",
         title:"Crypto Trading Platform",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla neque quam, maximus ut accumsan ut, posuere sit Lorem ipsum."
     }

@@ -4,7 +4,7 @@ const Header = () => {
             <div className="container">
                 <div className="d-flex justify-content-between align-items-center">
                     <div className="logo">
-                        <img src=" ./src/assets/image/download.png" alt="" />
+                        <img src=" /public/image/download.png" alt="" />
                     </div>
                     <div className="d-flex align-items-center gap-5">
                         <ul className="m-0 p-0 d-flex gap-4">

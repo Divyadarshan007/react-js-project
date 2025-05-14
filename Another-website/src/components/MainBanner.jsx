@@ -4,7 +4,7 @@ import Carousal from "./Carousal"
 let imageArr = ["./src/assets/image/slider-1.png", "./src/assets/image/slider-2.png"]
 const MainBanner = () => {
 
-  const [BannerContent, setBannerContent] = useState(1);
+  // const [BannerContent, setBannerContent] = useState(1);
   return (
     <section>
       <div className="">
@@ -13,7 +13,7 @@ const MainBanner = () => {
             {imageArr.map((item) => {
               return <Carousal image={item} />
             })}
-            <BannerContent title={BannerContent.title} desc={BannerContent.desc}/>
+            {/* <BannerContent title={BannerContent.title} desc={BannerContent.desc}/> */}
           
           </div>
           <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
