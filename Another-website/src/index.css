@@ -1,0 +1,16 @@
+*{
+  list-style: none;
+  text-decoration: none !important;
+  color: #000 !important;
+}
+header{
+  background-color: #fff;
+}
+.gola{
+  top: 10px;
+}
+
+.hello{
+  position: relative;
+  z-index: -1;
+}
