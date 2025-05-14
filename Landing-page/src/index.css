@@ -20,7 +20,7 @@ header {
 }
 
 .bg-image {
-  background-image: url('./assets/image/bg-2.dde07ca0.jpg');
+  background-image: url('../public/image/bg-2.dde07ca0.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
