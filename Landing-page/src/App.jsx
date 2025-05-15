@@ -4,6 +4,9 @@ import Roadmap from "./components/Roadmap"
 import Service from "./components/Service"
 import Wallet from "./components/Wallet"
 import Distribution from "./components/Distribution"
+import TeamSection from "./components/TeamSection"
+import PartnerSection from "./components/PartnerSection"
+import ContactSection from "./components/ContactSection"
 
 
 const App = () => {
@@ -15,6 +18,9 @@ const App = () => {
       <Roadmap />
       <Wallet />
       <Distribution />
+      <TeamSection/>
+      <PartnerSection/>
+      <ContactSection/>
     </div>
   )
 }
