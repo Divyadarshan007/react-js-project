@@ -7,7 +7,7 @@ const Header = () => {
                         <img src=" /public/image/download.png" alt="" />
                     </div>
                     <div className="d-flex align-items-center gap-5">
-                        <ul className="m-0 p-0 d-flex gap-4">
+                        <ul className="m-0 p-0 d-flex menus gap-4">
                             <li className="fs-5 fw-semibold text-secondary">Home</li>
                             <li className="fs-5 fw-semibold text-secondary">About</li>
                             <li className="fs-5 fw-semibold text-secondary">Services</li>

@@ -19,8 +19,11 @@ const ContactSection = () => {
                             <input placeholder="Subject" type="text" className="" />
                         </div>
                         <div className="col-12 py-3">
-                            <textarea name="" placeholder="Message" className="" rows={'5'} id=""></textarea>
+                            <textarea name="" cols={'5'} placeholder="Message" className="" rows={'5'} id=""></textarea>
                         </div>
+                    </div>
+                    <div className="twoButton text-center">
+                        <button className="">SEND MESSAGE</button>
                     </div>
                 </form>
             </div>

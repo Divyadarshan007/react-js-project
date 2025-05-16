@@ -7,6 +7,7 @@ import Distribution from "./components/Distribution"
 import TeamSection from "./components/TeamSection"
 import PartnerSection from "./components/PartnerSection"
 import ContactSection from "./components/ContactSection"
+import Footer from "./components/Footer"
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
       <TeamSection/>
       <PartnerSection/>
       <ContactSection/>
+      <Footer/>
     </div>
   )
 }
