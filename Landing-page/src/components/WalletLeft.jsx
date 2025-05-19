@@ -18,7 +18,7 @@ let walletCardArr = [
 ]
 const WalletLeft = () => {
     return (
-        <div className="col-7">
+        <div className="col-lg-7 col-12">
           <div className="row gy-4">
               {walletCardArr.map((item)=>{
                 return <WalletCard icon={item.icon} title={item.title} desc={item.desc}/>

@@ -9,10 +9,10 @@ const ContactSection = () => {
                 <SectionTitle title={title} desc={desc} />
                 <form action="">
                     <div className="row gy-3">
-                        <div className="col-6 py-3">
+                        <div className="col-sm-6 col-12 py-3">
                             <input placeholder="Name" type="text" className="" />
                         </div>
-                        <div className="col-6 py-3">
+                        <div className="col-sm-6 col-12 py-3">
                             <input placeholder="Email" type="text" className="" />
                         </div>
                         <div className="col-12 py-3">

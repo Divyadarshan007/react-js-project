@@ -1,6 +1,6 @@
 const Card = ({image, title, desc}) => {
     return (
-        <div className="col-4">
+        <div className="col-md-4 col-sm-6 col-12">
             <div className="Service-card">
                 <div className="card-svg">
                     <img src={image} alt="logo" />

@@ -2,8 +2,8 @@ const Footer = () => {
     return (
         <footer>
             <div className="container">
-                <div className="row">
-                    <div className="col-4">
+                <div className="row gy-5">
+                    <div className="col-lg-4 col-sm-6">
                         <div>
                             <div className="mb-3">
                                 <img src="../../public/image/download.png" alt="" />
@@ -18,7 +18,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div className="col-lg-2 col-sm-6">
                         <div>
                             <h5>NAVIGATE</h5>
                             <ul className="m-0 p-0">
@@ -30,7 +30,7 @@ const Footer = () => {
                             </ul>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div className="col-lg-3 col-sm-6">
                         <div>
                             <h5>PRIVACY & TOYS</h5>
                             <ul className="m-0 p-0">
@@ -42,7 +42,7 @@ const Footer = () => {
                             </ul>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div className="col-lg-3 col-sm-6">
                         <div>
                             <h5>PHONE</h5>
                             <ul className="m-0 p-0">

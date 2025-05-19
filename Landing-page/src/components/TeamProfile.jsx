@@ -1,6 +1,6 @@
 const TeamProfile = ({image, name, desig}) => {
     return (
-        <div className="col-3">
+        <div className="col-md-3 col-sm-6 col-12">
             <div className="h-100">
                 <div className="profile-image text-center">
                     <img src={image} alt="" />

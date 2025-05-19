@@ -29,7 +29,7 @@ const TeamSection = () => {
         <section>
             <div className="container">
                 <SectionTitle title={title} desc={desc} />
-                <div className="row">
+                <div className="row gy-4">
                     {teamProfile.map((item) => {
                         return <TeamProfile image={item.image} name={item.name} desig={item.desig} />
                     })}

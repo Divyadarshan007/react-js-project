@@ -42,7 +42,7 @@ const PartnerSection = () => {
     let title = "Our Awesome Partners";
     let desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis accumsan nisi Ut ut felis congue nisl hendrerit commodo.";
     return (
-        <section>
+        <section className="d-sm-block d-none">
             <div className="container">
                 <SectionTitle title={title} desc={desc} />
                 <div className="row gy-4">

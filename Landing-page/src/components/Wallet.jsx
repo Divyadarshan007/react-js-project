@@ -9,7 +9,7 @@ const Wallet = () => {
         <section className="py-5">
             <div className="container">
                 <SectionTitle title={title} desc={desc}/>
-                <div className="row">
+                <div className="row gy-4">
                     <WalletLeft/>
                     <WalletRight/>
                 </div>
