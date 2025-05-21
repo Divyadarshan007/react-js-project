@@ -6,7 +6,7 @@ const TeamProfile = ({image, name, desig}) => {
                     <img src={image} alt="" />
                 </div>
                 <div className="profile-info text-center">
-                    <h3 className="mt-3 text-center f-18">{name}</h3>
+                    <h3 className="mt-3 text-center text-white f-18">{name}</h3>
                     <p>{desig}</p>
                     <div className="social-icons d-flex justify-content-center gap-2">
                         <span><i className="bi bi-twitter"></i></span>
