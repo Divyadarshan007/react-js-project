@@ -22,10 +22,15 @@ body {
     max-width: 400px;
 }
 
+/* .my-8{
+    margin-block: 20px;
+} */
+
+
 
 .profile-card {
     position: relative;
-    padding: 2.5rem;
+    padding:2.5rem ;
     background: rgba(30, 41, 59, 0.8);
     backdrop-filter: blur(10px);
     border-radius: 1.5rem;
@@ -33,9 +38,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* .profile-card:hover {
-    transform: translateY(-5px);
-} */
+
 
 .card-content {
     position: relative;
@@ -105,10 +108,10 @@ body {
 .name {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
-    /* background: linear-gradient(to right, #60a5fa, #a78bfa); */
-    color: #60a5fa;
-    /* -webkit-background-clip: text; */
-    /* -webkit-text-fill-color: transparent; */
+    background: linear-gradient(to right, #60a5fa, #a78bfa);
+    /* color: #60a5fa; */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
    
 }
 
@@ -137,10 +140,10 @@ body {
 .stat-value {
     font-size: 1.2rem;
     font-weight: bold;
-    /* background: linear-gradient(to right, #60a5fa, #a78bfa); */
-    color: #60a5fa !important;
-    /* -webkit-background-clip: text; */
-    /* -webkit-text-fill-color: transparent; */
+    /* color: #60a5fa ; */
+     background: linear-gradient(to right, #60a5fa, #a78bfa);
+       -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .stat-label {
@@ -174,11 +177,11 @@ body {
     transition: all 0.3s ease;
 }
 
-/* .skill:hover {
+.skill:hover {
     background: rgba(255, 255, 255, 0.1);
     color: white;
     transform: translateY(-2px);
-} */
+}
 
 
 .actions {
@@ -220,9 +223,9 @@ body {
     opacity: 0;
 }
 
-/* .primary:hover .btn-effect {
+.primary:hover .btn-effect {
     opacity: 0.2;
-} */
+}
 
 .secondary {
     background: transparent;
@@ -252,12 +255,12 @@ body {
             transparent);
     animation: shine 8s infinite;
 }
-/* 
+
 @keyframes shine {
     to {
         left: 200%;
     }
-} */
+}
 
 .card-border {
     position: absolute;
@@ -274,9 +277,9 @@ body {
     transition: opacity 0.3s ease;
 }
 
-/* .profile-card:hover .card-border {
+.profile-card:hover .card-border {
     opacity: 1;
-} */
+}
 
 .card-glow {
     position: absolute;
@@ -288,9 +291,9 @@ body {
     transition: opacity 0.3s ease;
 }
 
-/* .profile-card:hover .card-glow {
+.profile-card:hover .card-glow {
     opacity: 0.05;
-} */
+}
 
 
 @media (max-width: 480px) {
@@ -314,4 +317,8 @@ body {
     .skills {
         flex-wrap: wrap;
     }
+}
+
+.searchButton{
+    background: linear-gradient(45deg, #60a5fa, #a78bfa);
 }
