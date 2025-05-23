@@ -22,12 +22,22 @@ body {
     max-width: 400px;
 }
 
-/* .my-8{
+.my-8{
     margin-block: 20px;
-} */
+}
 
 
+input{
+    caret-color: #fff !important;
+    padding: 0px 10px;
+}
 
+.actions{
+    margin: 20px 0;
+}
+button{
+    cursor: pointer;
+}
 .profile-card {
     position: relative;
     padding:2.5rem ;

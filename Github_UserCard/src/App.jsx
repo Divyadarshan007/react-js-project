@@ -1,11 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import domtoimage from 'dom-to-image';
 
-
 const App = () => {
-
   const captureRef = useRef(null);
-
   const handleCaptureClick = () => {
     if (captureRef.current) {
       domtoimage.toPng(captureRef.current)
@@ -24,8 +21,6 @@ const App = () => {
   const [userData, setUserData] = useState('');
   const [dataObj, setDataObj] = useState({});
 
-
-
   useEffect(() => {
     if (!userData) {
       return;
@@ -38,19 +33,14 @@ const App = () => {
     }
 
     fetchData();
-  }, [setUserData])
+  }, [userData])
   console.log(dataObj);
-
-
-
-
 
   return (
     <div>
       <div className='my-8 flex items-center'>
-        <input type="text" className='border w-70 rounded-bl-md rounded-tl-md h-10' onChange={(e) => {
+        <input type="text" className='border w-70 px-3 rounded-bl-md rounded-tl-md h-10' onChange={(e) => {
           setValue(e.target.value);
-
         }} />
         <button className='border searchButton w-30 rounded-br-md rounded-tr-md h-10' onClick={() => {
           setUserData(value)
@@ -66,23 +56,23 @@ const App = () => {
                   <div className="avatar-inner" />
                   <div className="avatar-glow" />
                   <div className="avatar-border" />
-                  {/* <img src="" id="image" /> */}
+                  <img src={Object.keys(dataObj) == 0 ? "https://avatars.githubusercontent.com/u/156925779?v=4" : dataObj.avatar_url} id="image" />
                 </div>
               </div>
               <div className="profile-info">
-                <h2 className="name" id="userName">Sarah Anderson</h2>
-                <p className="title" id="title">Senior Product Designer</p>
+                <h2 className="name" id="userName">{Object.keys(dataObj) == 0 ? "Divyadarshan Das" : dataObj.name}</h2>
+                <p className="title" id="title">{dataObj.bio}</p>
                 <div className="stats">
                   <div className="stat">
-                    <span className="stat-value" id="stat-value">1.2k</span>
-                    <span className="stat-label">Projects</span>
+                    <span className="stat-value" id="stat-value">{Object.keys(dataObj) == 0 ? "31" : dataObj.public_repos}</span>
+                    <span className="stat-label">Repositories</span>
                   </div>
                   <div className="stat">
-                    <span className="stat-value" id="stat-follower">8.5k</span>
+                    <span className="stat-value" id="stat-follower">{Object.keys(dataObj) == 0 ? "9": dataObj.followers}</span>
                     <span className="stat-label">Followers</span>
                   </div>
                   <div className="stat">
-                    <span className="stat-value" id="stat-following">4.7k</span>
+                    <span className="stat-value" id="stat-following">{Object.keys(dataObj) == 0 ? "8": dataObj.following}</span>
                     <span className="stat-label">Following</span>
                   </div>
                 </div>
@@ -90,16 +80,9 @@ const App = () => {
                   Creative designer with 5+ years of experience in digital product design and brand identity.
                 </div>
                 <div className="skills">
-                  <span className="skill">UI/UX</span>
-                  <span className="skill">Branding</span>
-                  <span className="skill">Motion</span>
-                </div>
-                <div className="actions">
-                  <button className="action-btn primary" onClick={handleCaptureClick}>
-                    <span>Download</span>
-                    <div className="btn-effect" />
-                  </button>
-
+                  <span className="skill">HTML & CSS</span>
+                  <span className="skill">JavaScript</span>
+                  <span className="skill">Reactjs</span>
                 </div>
               </div>
             </div>
@@ -109,6 +92,12 @@ const App = () => {
           </div>
         </div>
       </div>
+                <div className="actions">
+                  <button className="action-btn primary" onClick={handleCaptureClick}>
+                    <span>Download</span>
+                    <div className="btn-effect" />
+                  </button>
+                </div>
     </div>
   )
 }
