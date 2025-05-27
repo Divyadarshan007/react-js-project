@@ -53,9 +53,9 @@ const App = () => {
             <div className="card-content" >
               <div className="avatar-wrapper">
                 <div className="avatar">
-                  <div className="avatar-inner" />
+                  {/* <div className="avatar-inner" />
                   <div className="avatar-glow" />
-                  <div className="avatar-border" />
+                  <div className="avatar-border" /> */}
                   <img src={Object.keys(dataObj) == 0 ? "https://avatars.githubusercontent.com/u/156925779?v=4" : dataObj.avatar_url} id="image" />
                 </div>
               </div>

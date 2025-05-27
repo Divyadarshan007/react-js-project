@@ -1,33 +1,33 @@
 import RoadmapCard from "./RoadmapCard";
 import SectionTitle from "./SectionTitle";
-let roadmapArr=[
+let roadmapArr = [
     {
-        title:"Platform Development Starts",
-        startDate:"May 12, 2018",
-        endDate:"Jun 19, 2018",
-        desc:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto adipisci provident officia animi.",
-        positon:"left"
+        title: "Platform Development Starts",
+        startDate: "May 12, 2018",
+        endDate: "Jun 19, 2018",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto adipisci provident officia animi.",
+        positon: "left"
     },
     {
-        title:"Groundwork Preparation for ICO",
-        startDate:"Aug 18, 2018",
-        endDate:"Sep 23, 2018",
-        desc:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto adipisci provident officia animi.",
-        position:"right",
+        title: "Groundwork Preparation for ICO",
+        startDate: "Aug 18, 2018",
+        endDate: "Sep 23, 2018",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto adipisci provident officia animi.",
+        position: "right",
     },
     {
-        title:"Crypto Blockchain Release",
-        startDate:"Oct 08, 2018",
-        endDate:"Nov 16, 2018",
-        desc:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto adipisci provident officia animi.",
-        position:"left",
+        title: "Crypto Blockchain Release",
+        startDate: "Oct 08, 2018",
+        endDate: "Nov 16, 2018",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto adipisci provident officia animi.",
+        position: "left",
     },
     {
-        title:"Release Bank & Cards Phase",
-        startDate:"Dec 28, 2018",
-        endDate:"Jan 29, 2019",
-        desc:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto adipisci provident officia animi.",
-        position:"right",
+        title: "Release Bank & Cards Phase",
+        startDate: "Dec 28, 2018",
+        endDate: "Jan 29, 2019",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto adipisci provident officia animi.",
+        position: "right",
     },
 ]
 
@@ -41,13 +41,9 @@ const Roadmap = () => {
             <div className="container">
                 <SectionTitle title={title} desc={desc} />
                 <div className="timeline py-6 mt-5">
-
-                    {roadmapArr.map((item)=>{
-                    return<RoadmapCard title={item.title} startDate={item.startDate} endDate={item.endDate} desc={item.desc} position={item.position}/>
-
+                    {roadmapArr.map((item) => {
+                        return <RoadmapCard title={item.title} startDate={item.startDate} endDate={item.endDate} desc={item.desc} position={item.position} />
                     })}
-                    
-                    
                 </div>
             </div>
         </section>
