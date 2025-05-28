@@ -1,10 +1,13 @@
-const Table = ({ tasks, setterTask }) => {
-    const updateStatus = (id) => {
-        let updatedTask = tasks.map((task) => {
+const PendingTaskTable = ({pendingArr, tasks, setterTask}) => {
+     const updateStatus = (id) => {
+        let updatedTask = pendingArr.map((task) => {
             return task.id === id ? { ...task, isCompleted: true } : task;
         })
         setterTask(updatedTask);
     }
+    
+    console.log(pendingArr);
+    
     return (
         <div>
             <div className="relative w-6/12 mx-auto my-5 overflow-x-auto">
@@ -20,20 +23,20 @@ const Table = ({ tasks, setterTask }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {tasks.map((task) => {
+                        {pendingArr.map((task) => {
                             return <tr key={task.id} className="bg-white border-b text-center dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {task.taskName}
                                 </th>
                                 {task.isCompleted ? <td className="px-6 py-4">
-                                    <span className="inline-block">
+                                    <div className="">
                                         <p className="text-green-700">Task Completed</p>
-                                    </span>
-                                </td> : <span className="inline-block px-6 py-4 items-center">
+                                    </div>
+                                </td> : <div className=" px-6 py-4 items-center">
                                     <p className="text-blue-700 cursor-pointer" onClick={() => {
                                         updateStatus(task.id);
                                     }}>Mark as completed</p>
-                                </span>}
+                                </div>}
                             </tr>
                         })}
 
@@ -44,4 +47,4 @@ const Table = ({ tasks, setterTask }) => {
     )
 }
 
-export default Table
+export default PendingTaskTable

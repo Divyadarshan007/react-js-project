@@ -1,27 +1,37 @@
 import { useRef, useState } from "react";
 import Table from "./Table";
+import PendingTaskTable from "./pendingTaskTable";
+import CompletedTaskTable from "./completedTaskTable";
 
 const Todo = () => {
 
     const [text, setText] = useState("");
     const [tasks, setTasks] = useState([]);
+    const [pendingTasks, setPendingTasks] = useState([]);
+    const [completedTasks, setCompletedTasks] = useState([]);
+    const [storeStatus, setStoreStatus] = useState("");
     const inputRef = useRef(null);
 
     const addTask = () => {
         if (text.trim() == "") {
             return;
         }
-
         const newTask = {
             id: Date.now(),
-            taskName:text,
+            taskName: text,
             isCompleted: false,
         }
-        setTasks([...tasks, newTask]);
-        inputRef.current.value="";
-        setText("")
-        
 
+        setTasks([...tasks, newTask]);
+        inputRef.current.value = "";
+        setText("")
+    }
+
+    const showPending = () => {
+        let pendingTask = tasks.filter((task) => {
+            return !task.isCompleted
+        })
+        setPendingTasks(pendingTask);
     }
     return (
         <>
@@ -35,7 +45,18 @@ const Todo = () => {
                     <button type="button" onClick={addTask} className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 ">Add Task</button>
                 </div>
             </form>
-            <Table tasks={tasks} setterTask={setTasks}/>
+            <div className="mx-auto max-w-md my-5 flex gap-2">
+                <button className="border py-1 px-10 font-semibold bg-teal-500 text-white rounded-md" onClick={(e) => {
+                    setStoreStatus("all");
+                }}>All</button>
+                <button className="border py-1 px-10 font-semibold bg-teal-500 text-white rounded-md" onClick={(e) => {
+                    setStoreStatus("pending")
+                }}>Pending</button>
+                <button className="border py-1 px-10 font-semibold bg-teal-500 text-white rounded-md" onClick={(e) => {
+                    setStoreStatus("completed")
+                }}>Completed</button>
+            </div>
+            <Table tasks={tasks} setterTask={setTasks} />
         </>
     )
 }
