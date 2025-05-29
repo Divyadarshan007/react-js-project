@@ -1,22 +1,20 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Table = ({ tasks, setterTask, storeStatus }) => {
     const [displayTask, setDisplayTask] = useState([]);
-    // const [removeTask, setRemoveTask] = useState([]);
     const updateStatus = (id) => {
         let updatedTask = tasks.map((task) => {
             return task.id === id ? { ...task, isCompleted: true } : task;
         })
         setterTask(updatedTask);
     }
+
     useEffect(() => {
         let filtertask = tasks.filter((task) => {
             return storeStatus == "pending" ? !task.isCompleted : storeStatus == "completed" ? task.isCompleted : true;
         })
 
         setDisplayTask(filtertask)
-
-
 
     }, [tasks, storeStatus])
 
@@ -33,11 +31,11 @@ const Table = ({ tasks, setterTask, storeStatus }) => {
             <div className="relative  my-5 overflow-x-auto">
                 <div className=" text-sm text-left  rtl:text-right text-gray-500 dark:text-gray-400">
                     <div className="w-full">
-                        {displayTask.map((task, idx) => {
+                        {displayTask.map((task) => {
                             return <div key={task.id} className="bg-white px-5 shadow-sm border-b my-3 rounded-[10px] flex items-center">
 
                                 <div scope="" className="px-6 py-4 w-6/12 text-wrap text-md font-mono font-semibold text-gray-900  ">
-                                    <div className="flex items-center w-full overflow-hidden gap-2">
+                                    <div className="flex items-center w-full overflow-hidden gap-3">
                                         <div>
                                             <span className="w-[10px] h-[10px] bg-black inline-block rounded-[50%]"></span>
                                         </div>
