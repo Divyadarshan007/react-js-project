@@ -3,14 +3,18 @@ import Table from "./Table";
 
 const Todo = () => {
     const [text, setText] = useState("");
+
     const [tasks, setTasks] = useState([]);
-    const [storeStatus, setStoreStatus] = useState("all");
+
+    const [storeValue, setStoreValue] = useState("all");
+
     const inputRef = useRef(null);
 
     const addTask = () => {
         if (text.trim() == "") {
             return;
         }
+
         const newTask = {
             id: Date.now(),
             taskName: text,
@@ -31,16 +35,16 @@ const Todo = () => {
                         <span className="text-sm font-medium text-gray-500">{date.toDateString()}</span>
                     </div>
                     <div className="flex gap-2">
-                        <button className="rounded-[7px] py-1 px-10 font-semibold bg-white text-dark shadow-md" onClick={() => setStoreStatus("all")}>All</button>
-                        <button className=" rounded-[7px] py-1 px-10 font-semibold bg-white text-dark shadow-md" onClick={() => setStoreStatus("pending")}>Pending</button>
-                        <button className="rounded-[7px] py-1 px-10 font-semibold bg-white shadow-md text-dark" onClick={() => setStoreStatus("completed")}>Completed</button>
+                        <button className="rounded-[7px] py-1 px-10 font-semibold bg-white text-dark shadow-md" onClick={() => setStoreValue("all")}>All</button>
+                        <button className=" rounded-[7px] py-1 px-10 font-semibold bg-white text-dark shadow-md" onClick={() => setStoreValue("pending")}>Pending</button>
+                        <button className="rounded-[7px] py-1 px-10 font-semibold bg-white shadow-md text-dark" onClick={() => setStoreValue("completed")}>Completed</button>
                     </div>
                 </div>
                 <div className="p-7  scrollbar overflow-y-auto">
                     {tasks.length == 0 ? <div className="flex flex-col items-center justify-center">
                         <img src="/public/59563746_9318707.jpg" alt="" width={'40%'} />
                         <span className="mt-4 text-xl inline-block">No Task Yet</span>
-                    </div> : <Table tasks={tasks} setterTask={setTasks} storeStatus={storeStatus} />}
+                    </div> : <Table tasks={tasks} setterTask={setTasks} storeValue={storeValue} />}
                 </div>
 
                 <form className="p-7">

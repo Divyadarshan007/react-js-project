@@ -1,22 +1,24 @@
 import { useEffect, useState } from "react";
 
-const Table = ({ tasks, setterTask, storeStatus }) => {
+const Table = ({ tasks, setterTask, storeValue }) => {
     const [displayTask, setDisplayTask] = useState([]);
+    
+    useEffect(() => {
+        let filtertask = tasks.filter((task) => {
+            return storeValue == "pending" ? !task.isCompleted : storeValue == "completed" ? task.isCompleted : true;
+        })
+
+        setDisplayTask(filtertask)
+
+    }, [ tasks, storeValue])
+
+
     const updateStatus = (id) => {
         let updatedTask = tasks.map((task) => {
             return task.id === id ? { ...task, isCompleted: true } : task;
         })
         setterTask(updatedTask);
     }
-
-    useEffect(() => {
-        let filtertask = tasks.filter((task) => {
-            return storeStatus == "pending" ? !task.isCompleted : storeStatus == "completed" ? task.isCompleted : true;
-        })
-
-        setDisplayTask(filtertask)
-
-    }, [tasks, storeStatus])
 
     const deleteTask = (id) => {
         let updatedTask = tasks.filter((task) => {
