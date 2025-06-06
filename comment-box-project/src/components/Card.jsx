@@ -1,26 +1,46 @@
-import { Datepicker } from "flowbite-react";
 import { useRef, useState } from "react"
 
 const Card = () => {
-
 
     const [input, setInput] = useState({
         fname: "",
         message: "",
         date: "",
+        rating: 0,
     });
 
     const [arr, setArr] = useState([]);
-
     const [errors, setErrors] = useState({});
+    const [editIndex, setEditIndex] = useState(null);
 
-    const formRef = useRef(null);
+    const [isUpdate, setIsUpdate] = useState(false);
+
 
     const handleChange = (e) => {
         setInput({ ...input, [e.target.id]: e.target.value })
         setErrors({ ...errors, [e.target.id]: "" })
     }
+    const handleUpdate = (index) => {
+        const editObj = arr[index];
+        setInput({
+            fname: editObj.fname,
+            message: editObj.message,
+            date: editObj.date,
+            rating: editObj.rating,
+        });
+        setEditIndex(index);
+        setIsUpdate(true)
+    }
 
+    const handleDelete = (index)=>{
+       const afterDelete = arr.filter((data, idx)=>{
+            return idx != index;
+        })
+        setArr(afterDelete)
+        setInput({ fname: "", message: "", date: "" });
+        setErrors({})
+        setIsUpdate(false)
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -37,17 +57,41 @@ const Card = () => {
         if (input.date.trim() == "") {
             validateErrors.date = "Select Valid Date !";
         }
+        if (input.rating === 0) {
+            validateErrors.rating = "Please select a rating!";
+        }
 
         setErrors(validateErrors)
-        
+
         if (Object.keys(validateErrors).length == 0) {
-            setArr( [...arr, input]);
+
+            if (isUpdate) {
+                const updatedArr = [...arr];
+                console.log(updatedArr);
+                
+                updatedArr[editIndex] = input;
+                setArr(updatedArr);
+                setIsUpdate(false)
+                setEditIndex(null);
+            } else {
+                setArr([...arr, input]);
+            }
+
             setInput({ fname: "", message: "", date: "" });
             setErrors({})
-            
+
+
         }
-        
+
     }
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+    };
+
     return (
         <div className="container mx-auto flex items-center h-[100vh]  justify-center">
             <div className="card-box flex gap-5 shadow-lg">
@@ -63,24 +107,19 @@ const Card = () => {
                                 {errors.message && <p className="text-sm text-red-600">{errors.message}</p>}
                             </div>
                             <div className="mb-4 flex gap-1 bg-gray-200 p-2.5 rounded-lg">
-                                <span>
-                                    <i className="fa-regular fa-star"></i>
-                                </span>
-                                <span>
-                                    <i className="fa-regular fa-star"></i>
-                                </span>
-                                <span>
-                                    <i className="fa-regular fa-star"></i>
-                                </span>
-                                <span>
-                                    <i className="fa-regular fa-star"></i>
-                                </span>
-                                <span>
-                                    <i className="fa-regular fa-star"></i>
-                                </span>
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <span key={star} onClick={() => setInput({ ...input, rating: star })} className="cursor-pointer text-xl">
+                                        <i
+                                            className={`fa-star ${star <= input.rating ? "fa-solid text-yellow-400" : "fa-regular text-gray-500"
+                                                }`}
+                                        ></i>
+                                    </span>
+                                ))}
+                                {errors.rating && <p className="text-sm text-red-600">{errors.rating}</p>}
                             </div>
+
                             <div className="relative mb-4">
-                                <input  id="date" onChange={handleChange} value={input.date} type="date" className="bg-gray-200 shadow-sm text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5 " placeholder="Select date" />
+                                <input id="date" onChange={handleChange} value={input.date} type="date" className="bg-gray-200 shadow-sm text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5 " placeholder="Select date" />
                                 {errors.date && <p className="text-sm text-red-600 dark:text-red-500">{errors.date}</p>}
                             </div>
                         </div>
@@ -88,12 +127,35 @@ const Card = () => {
                     </form>
                 </div>
                 <div className="w-6/12">
-                    <div className="show-comment p-[10px] rounded-lg bg-[#00b8b0] w-full h-full">
-                        {arr.map((data) => {
-                            return <div>
-                                <h3>{data.fname}</h3>
-                                <p>{data.message}</p>
-                                <p>{data.date}</p>
+                    <div className="show-comment  p-[10px] rounded-lg bg-[#00b8b0] w-full h-[350px] overflow-y-auto shadow-lg">
+                        {arr.map((data, idx) => {
+                            return <div className="comment-box bg-[#fff] shadow-lg px-5 py-3 mb-3 rounded-lg">
+                                <div className="flex items-center justify-between">
+                                    <h3 className="text-lg font-semibold ">{data.fname}</h3>
+                                    <p className="text-[12px] text-end ">{formatDate(data.date)}</p>
+                                </div>
+                                <p className="text-md font-normal text-[#5c5c5c] mb-2">{data.message}</p>
+                                <div className="flex text-yellow-400 text-[12px] py-2">
+                                    {[1, 2, 3, 4, 5].map((star) => (
+                                        <i
+                                            key={star}
+                                            className={`fa-star ${star <= data.rating ? "fa-solid" : "fa-regular"}`}
+                                        ></i>
+                                    ))}
+                                </div>
+                                <div className="flex justify-end gap-5 items-center">
+                                    <button className="rounded-md text-dark" onClick={() => {
+                                        handleUpdate(idx)
+                                    }}>
+                                       <i class="fa-solid fa-pen-to-square"></i>
+                                    </button>
+                                    <button className=" rounded-full rounded-md text-dark" onClick={() => {
+                                        handleDelete(idx)
+                                    }}>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+
                             </div>
                         })}
                         {/* https://dribbble.com/shots/16202712-Contact-Form-UI */}
